@@ -2,8 +2,8 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./Food.css";
-const Food = ({ food }) => {
-  const { strMeal, strMealThumb, strInstructions, idMeal } = food;
+const Food = ({ food, addToCart }) => {
+  const { strMeal, strMealThumb, strInstructions } = food;
   return (
     <article className="food-card">
       <img src={strMealThumb} alt="" />
@@ -15,10 +15,10 @@ const Food = ({ food }) => {
             : strInstructions}
         </p>
       </div>
-      <a href="/" className="btn">
-        <span className="btn-text">Add To Cart</span>{" "}
+      <button className="btn" onClick={() => addToCart(food)}>
+        <span className="btn-text">Add To Cart</span>
         <FontAwesomeIcon icon={faShoppingBag} />
-      </a>
+      </button>
     </article>
   );
 };

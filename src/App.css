@@ -19,7 +19,7 @@ body {
   --transition: all 400ms ease;
   --border: 1px solid var(--rose-color);
   --radius: 10px;
-  --container-lg: 80%;
+  --container-lg: 85%;
   --container-md: 90%;
   --container-sm: 94%;
   --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.365);

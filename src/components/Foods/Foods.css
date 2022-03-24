@@ -11,6 +11,18 @@
   text-align: center;
   margin: 30px 0;
 }
+.food-cart {
+  background-color: var(--secondry-color);
+}
+.cart-info {
+  position: sticky;
+  top: 0;
+}
+.cart-info h4 {
+  color: var(--white-color);
+  margin: 30px 0;
+  text-align: center;
+}
 @media (max-width: 920px) {
   .food-cards {
     grid-template-columns: 1fr 1fr;
