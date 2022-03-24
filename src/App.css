@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  list-style: none;
+  border: 0;
+}
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--primary-color);
+}
+:root {
+  --primary-color: #1a1a40;
+  --secondry-color: #11468f;
+  --rose-color: #da1212;
+  --White-color: #eeeeee;
+  --transition: all 400ms ease;
+  --border: 1px solid #1a1a40;
+  --radius: 10px;
+  --container-lg: 80%;
+  --container-md: 90%;
+  --container-sm: 94%;
+  --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.365);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.5;
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  font-size: 18px;
+}
+.btn {
+  background-color: var(--rose-color);
+  color: var(--White-color);
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px 20px;
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+.btn:hover {
+  box-shadow: var(--shadow);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container {
+  width: var(--container-lg);
+  margin: 0 auto;
+}
+@media (max-width: 920px) {
+  .container {
+    width: var(--container-md);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 920px) {
+  h1 {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  .container {
+    width: var(--container-sm);
   }
 }
