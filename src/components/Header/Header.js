@@ -1,11 +1,14 @@
-import React from "react";
+import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import "./Header.css";
 const Header = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <header className="header">
       <nav className="nav-bar container">
         <div className="logo">K🍝D</div>
-        <ul className="nav-items">
+        <ul className={!mobileMenu ? "open-menu nav-items" : "nav-items"}>
           <li className="nav-item">
             <a href="/">Home</a>
           </li>
@@ -20,6 +23,13 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <div className="menu-bar" onClick={() => setMobileMenu(!mobileMenu)}>
+        {mobileMenu ? (
+          <FontAwesomeIcon icon={faBarsStaggered} />
+        ) : (
+          <FontAwesomeIcon icon={faXmark} />
+        )}
+      </div>
     </header>
   );
 };
