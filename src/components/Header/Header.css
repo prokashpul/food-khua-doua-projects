@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   background-color: var(--rose-color);
-  height: 5rem;
+  height: 4rem;
   color: var(--white-color);
 }
 .nav-bar {
@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  z-index: 999;
 }
 .nav-item a {
   color: var(--white-color);
@@ -38,12 +39,12 @@
     margin-left: 20px;
   }
   .nav-items {
-    top: 5rem;
+    top: 4rem;
     padding-top: 20px;
     position: absolute;
     background-color: var(--primary-color);
     width: 100%;
-    height: 89vh;
+    height: 91vh;
     flex-direction: column;
     gap: 16px;
     left: -100%;

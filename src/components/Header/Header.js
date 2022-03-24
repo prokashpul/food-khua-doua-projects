@@ -8,7 +8,7 @@ const Header = () => {
     <header className="header">
       <nav className="nav-bar container">
         <div className="logo">K🍝D</div>
-        <ul className={!mobileMenu ? "open-menu nav-items" : "nav-items"}>
+        <ul className={mobileMenu ? "open-menu nav-items" : "nav-items"}>
           <li className="nav-item">
             <a href="/">Home</a>
           </li>
@@ -25,9 +25,9 @@ const Header = () => {
       </nav>
       <div className="menu-bar" onClick={() => setMobileMenu(!mobileMenu)}>
         {mobileMenu ? (
-          <FontAwesomeIcon icon={faBarsStaggered} />
-        ) : (
           <FontAwesomeIcon icon={faXmark} />
+        ) : (
+          <FontAwesomeIcon icon={faBarsStaggered} />
         )}
       </div>
     </header>
