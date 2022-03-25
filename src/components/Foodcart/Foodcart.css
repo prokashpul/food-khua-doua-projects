@@ -1,4 +1,21 @@
 .cart {
   margin: 10px;
   color: var(--white-color);
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--primary-color);
+}
+.cart-item {
+  display: flex;
+  gap: 10px;
+}
+.cart img {
+  height: 50px;
+  width: 50px;
 }

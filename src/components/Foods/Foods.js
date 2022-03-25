@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { cartDataStore, getCart } from "../../utilities/localstore";
+import { cartDataStore, deleteItem, getCart } from "../../utilities/localstore";
 import Food from "../Food/Food";
 import Foodcart from "../Foodcart/Foodcart";
 import "./Foods.css";
@@ -12,13 +12,6 @@ const Foods = () => {
       .then((res) => res.json())
       .then((data) => setFoods(data.meals));
   }, []);
-
-  //  button add click handel
-  const addToCart = (food) => {
-    const newFoods = [...cart, food];
-    setCart(newFoods);
-    cartDataStore(food.idMeal);
-  };
   // localstore data useEffect
   useEffect(() => {
     const getCartData = getCart();
@@ -26,12 +19,34 @@ const Foods = () => {
     for (const id in getCartData) {
       const findFood = foods.find((food) => food.idMeal === id);
       if (findFood) {
+        const quantity = getCartData[id];
+        findFood.quantity = quantity;
         saveFood.push(findFood);
       }
     }
     setCart(saveFood);
   }, [foods]);
-  console.log(cart);
+  //  button add click handel
+  const addToCart = (food) => {
+    let newOrders = [];
+    const exists = cart.find((f) => f.idMeal === food.idMeal);
+
+    if (!exists) {
+      food.quantity = 1;
+      newOrders = [...cart, food];
+    } else {
+      const rest = cart.filter((f) => f.idMeal !== food.idMeal);
+      food.quantity = food.quantity + 1;
+      newOrders = [...rest, exists];
+    }
+    setCart(newOrders);
+    cartDataStore(food.idMeal);
+  };
+  // deleteItem
+  const deleteAll = () => {
+    deleteItem();
+  };
+  // console.log(cart);
   return (
     <div className="food-page">
       <section className=" container">
@@ -45,9 +60,14 @@ const Foods = () => {
       <section className="food-cart">
         <div className="cart-info">
           <h4>Order Details:</h4>
-          {cart.map((cart, index) => (
-            <Foodcart cart={cart} key={index}></Foodcart>
+          <h4>Food Items: {cart.length}</h4>
+          {cart.map((cart) => (
+            <Foodcart cart={cart} key={cart.idMeal}></Foodcart>
           ))}
+
+          <a href="/" className="btn" onClick={() => deleteAll()}>
+            Delete All
+          </a>
         </div>
       </section>
     </div>

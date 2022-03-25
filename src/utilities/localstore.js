@@ -22,4 +22,20 @@ const getCart = () => {
   return getCartinfo;
 };
 
-export { cartDataStore, getCart };
+// removed cart item
+const cartRemoved = (id) => {
+  const Foodcart = localStorage.getItem("food-id");
+  if (Foodcart) {
+    const removedCart = JSON.parse(Foodcart);
+    if (id in removedCart) {
+      delete removedCart[id];
+      localStorage.setItem("food-id", JSON.stringify(removedCart));
+    }
+  }
+};
+
+const deleteItem = () => {
+  localStorage.removeItem("food-id");
+};
+
+export { cartDataStore, getCart, cartRemoved, deleteItem };
