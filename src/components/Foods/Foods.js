@@ -20,7 +20,7 @@ const Foods = () => {
     const getCartData = getCart();
     let saveFood = [];
     for (const id in getCartData) {
-      const findFood = foods ? foods.find((food) => food.idMeal === id) : " ";
+      const findFood = foods ? foods.find((food) => food.idMeal === id) : "";
       if (findFood) {
         const quantity = getCartData[id];
         findFood.quantity = quantity;
@@ -58,10 +58,15 @@ const Foods = () => {
     }
     searchKey.value = "";
   };
+  const enterKey = (e) => {
+    if (e.key === "Enter") {
+      setFoodSearch(e.target.value);
+    }
+  };
   return (
     <div className="food-page">
       <section className=" container">
-        <Search searchNow={searchNow}></Search>
+        <Search searchNow={searchNow} enterKey={enterKey}></Search>
         <h3>Food Items:</h3>
         <div className="food-cards">
           {foods
