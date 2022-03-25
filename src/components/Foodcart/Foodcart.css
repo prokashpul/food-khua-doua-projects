@@ -15,6 +15,10 @@
   display: flex;
   gap: 10px;
 }
+.cart a {
+  color: var(--white-color);
+}
+
 .cart img {
   height: 50px;
   width: 50px;

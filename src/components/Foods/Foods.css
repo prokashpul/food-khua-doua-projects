@@ -13,6 +13,7 @@
 }
 .food-cart {
   background-color: var(--secondry-color);
+  min-height: 90vh;
 }
 .cart-info {
   position: sticky;
