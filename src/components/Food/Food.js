@@ -2,10 +2,13 @@ import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./Food.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Food = ({ food, addToCart }) => {
   const { strMeal, strMealThumb, strInstructions } = food;
+  AOS.init();
   return (
-    <article className="food-card">
+    <article className="food-card" data-aos="zoom-in">
       <img src={strMealThumb} alt="" />
       <div className="food-body">
         <h4>{strMeal}</h4>
